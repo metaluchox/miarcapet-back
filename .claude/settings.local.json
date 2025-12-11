@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xmllint:*)",
+      "Bash(./mvnw validate:*)",
+      "Bash(java -version:*)",
+      "Bash(JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64 ./mvnw validate:*)",
+      "Bash(tree:*)",
+      "Bash(JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64 ./mvnw clean:*)",
+      "Bash(JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64 ./mvnw spring-boot:run:*)",
+      "Bash(chmod +x deploy-cloudrun.sh)",
+      "Bash(chmod:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

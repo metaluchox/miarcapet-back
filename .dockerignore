@@ -1,0 +1,60 @@
+# ============================================
+# DOCKERIGNORE - Archivos a excluir del build
+# ============================================
+
+# Directorios de build
+target/
+build/
+out/
+
+# Dependencias locales
+.m2/
+.mvn/wrapper/maven-wrapper.jar
+
+# IDEs
+.idea/
+.vscode/
+.eclipse/
+.settings/
+*.iml
+*.ipr
+*.iws
+
+# Logs
+*.log
+logs/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Documentación
+README*.md
+docs/
+
+# Archivos temporales
+*.tmp
+*.bak
+*.swp
+*~
+
+# Tests
+src/test/
+
+# Base de datos local
+*.db
+*.sqlite
+data/
+
+# Variables de entorno locales
+.env
+.env.local

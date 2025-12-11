@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  # ====================================
+  # Aplicación Spring Boot
+  # ====================================
+  # NOTA: Este compose usa tu PostgreSQL existente (mi-postgres-db)
+  # No crea un nuevo contenedor de PostgreSQL
+  app:
+    # Construye la imagen usando el Dockerfile en el directorio actual
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    # Nombre del contenedor
+    container_name: miarcapet-app
+
+    # Reinicia automáticamente si falla
+    restart: unless-stopped
+
+    # Mapea el puerto 8080 del contenedor al puerto 8080 del host
+    # Podrás acceder a la aplicación en http://localhost:8080
+    ports:
+      - "8080:8080"
+
+    # Variables de entorno para configurar Spring Boot
+    environment:
+      # Perfil de Spring Boot activo (usa application-docker.properties)
+      SPRING_PROFILES_ACTIVE: docker
+
+      # URL de conexión a tu PostgreSQL existente
+      # Usa el nombre del contenedor 'mi-postgres-db' como hostname
+      SPRING_DATASOURCE_URL: jdbc:postgresql://mi-postgres-db:5432/miarcapet
+
+      # Usuario de la base de datos (según tu configuración)
+      SPRING_DATASOURCE_USERNAME: postgres
+
+      # Contraseña de la base de datos (según tu configuración)
+      SPRING_DATASOURCE_PASSWORD: tito
+
+      # Driver de PostgreSQL
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+
+      # Configuración de Hibernate
+      # update: actualiza el esquema automáticamente sin perder datos
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+
+      # Dialecto de PostgreSQL para Hibernate
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.PostgreSQLDialect
+
+      # Muestra las consultas SQL en los logs (útil para desarrollo)
+      SPRING_JPA_SHOW_SQL: true
+
+      # Formatea las consultas SQL para mejor legibilidad
+      SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL: true
+
+    # Conecta a la red bridge por defecto donde está tu PostgreSQL
+    # Esto permite que los contenedores se comuniquen entre sí
+    networks:
+      - default
+
+# ====================================
+# Definición de redes
+# ====================================
+networks:
+  # Usa la red bridge por defecto de Docker
+  # donde ya está corriendo tu contenedor mi-postgres-db
+  default:
+    external: true
+    name: bridge
