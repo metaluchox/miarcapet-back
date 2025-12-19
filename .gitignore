@@ -1,4 +1,6 @@
-# Maven
+# ====================================
+# MAVEN
+# ====================================
 target/
 pom.xml.tag
 pom.xml.releaseBackup
@@ -9,8 +11,20 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
+.flattened-pom.xml
 
-# Eclipse
+# ====================================
+# GRADLE (por si se usa en el futuro)
+# ====================================
+.gradle/
+build/
+!gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# ====================================
+# IDEs - ECLIPSE
+# ====================================
 .classpath
 .project
 .settings/
@@ -19,32 +33,52 @@ buildNumber.properties
 .sts4-cache
 bin/
 
-# IntelliJ IDEA
+# ====================================
+# IDEs - INTELLIJ IDEA
+# ====================================
 .idea/
 *.iws
 *.iml
 *.ipr
 out/
+.idea_modules/
 
-# VS Code
+# ====================================
+# IDEs - VS CODE
+# ====================================
 .vscode/
 *.code-workspace
+.history/
 
-# NetBeans
+# ====================================
+# IDEs - NETBEANS
+# ====================================
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
 
-# Compiled class files
+# ====================================
+# ARCHIVOS COMPILADOS
+# ====================================
 *.class
+*.dll
+*.exe
+*.o
+*.so
 
-# Log files
+# ====================================
+# LOGS
+# ====================================
 *.log
 logs/
+spring.log
+application.log
 
-# Package Files
+# ====================================
+# ARCHIVOS EMPAQUETADOS
+# ====================================
 *.jar
 *.war
 *.nar
@@ -53,42 +87,155 @@ logs/
 *.tar.gz
 *.rar
 
-# Environment variables
+# ====================================
+# SEGURIDAD - VARIABLES DE ENTORNO
+# ====================================
 .env
 .env.local
 .env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Application properties with sensitive data
+# ====================================
+# SEGURIDAD - ARCHIVOS DE CONFIGURACION SENSIBLES
+# ====================================
+# Configuraciones locales con passwords/secrets
 *-local.properties
 application-local.properties
+application-secret.properties
+secrets.properties
+credentials.properties
 
-# OS Files
+# Archivos de configuración de servicios cloud
+*-credentials.json
+service-account*.json
+gcp-credentials.json
+aws-credentials
+.aws/
+.gcp/
+
+# Claves y certificados
+*.key
+*.pem
+*.p12
+*.jks
+*.keystore
+*.truststore
+*.crt
+*.cer
+*.der
+id_rsa
+id_dsa
+*.ppk
+
+# ====================================
+# SEGURIDAD - TOKENS Y SECRETS
+# ====================================
+*secret*
+*token*
+*password*
+.npmrc
+.yarnrc
+
+# ====================================
+# SISTEMA OPERATIVO
+# ====================================
+# macOS
 .DS_Store
 .DS_Store?
 ._*
 .Spotlight-V100
 .Trashes
+.AppleDouble
+.LSOverride
+
+# Windows
 ehthumbs.db
 Thumbs.db
-*~
+Desktop.ini
+$RECYCLE.BIN/
 
-# Temporary files
+# Linux
+*~
+.directory
+.Trash-*
+
+# ====================================
+# ARCHIVOS TEMPORALES
+# ====================================
 *.tmp
+*.temp
 *.bak
 *.swp
 *.swo
 *~.nib
+*.orig
+*.rej
 
-# Claude Code
+# ====================================
+# CLAUDE CODE
+# ====================================
 .claude/settings.local.json
 
-# Database
+# ====================================
+# BASE DE DATOS
+# ====================================
 *.db
 *.sqlite
 *.sqlite3
+*.sql.backup
+dump.sql
+*.mdf
+*.ldf
 
-# Docker
-.dockerignore
+# ====================================
+# DOCKER
+# ====================================
+# NO ignorar .dockerignore - es necesario
+# docker-compose.override.yml (si tiene secrets)
 
-# Spring Boot
+# ====================================
+# SPRING BOOT
+# ====================================
 HELP.md
+.springBeans
+spring-boot-devtools.properties
+
+# ====================================
+# FRONTEND (si aplica)
+# ====================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp.*
+dist/
+.cache/
+
+# ====================================
+# TESTING
+# ====================================
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+coverage/
+
+# ====================================
+# OTROS
+# ====================================
+# Archivos de backup de editores
+*.bck
+*-backup
+*.backup
+
+# Archivos de índice de IDEs
+.externalToolBuilders/
+.recommenders/
+
+# JetBrains específicos
+/.idea/**/workspace.xml
+/.idea/**/tasks.xml
+/.idea/**/dictionaries
+/.idea/**/shelf

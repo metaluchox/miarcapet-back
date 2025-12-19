@@ -80,8 +80,8 @@ docker run -p 8080:8080 \
 
 Una vez que el contenedor esté corriendo:
 
-- **Aplicación Spring Boot**: http://localhost:8080
-- **Swagger UI**: http://localhost:8080/swagger-ui.html
+- **Aplicación Spring Boot**: http://localhost:9090
+- **Swagger UI**: http://localhost:9090/swagger-ui.html
 - **PostgreSQL** (tu contenedor existente): localhost:5432
   - Database: `miarcapet`
   - Usuario: `postgres`

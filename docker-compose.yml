@@ -1,4 +1,4 @@
-version: '3.8'
+q# version: '3.8'
 
 services:
   # ====================================
@@ -18,10 +18,10 @@ services:
     # Reinicia automáticamente si falla
     restart: unless-stopped
 
-    # Mapea el puerto 8080 del contenedor al puerto 8080 del host
-    # Podrás acceder a la aplicación en http://localhost:8080
+    # Mapea el puerto 9090 del contenedor al puerto 9090 del host
+    # Podrás acceder a la aplicación en http://localhost:9090
     ports:
-      - "8080:8080"
+      - "9090:9090"
 
     # Variables de entorno para configurar Spring Boot
     environment:
@@ -63,8 +63,7 @@ services:
 # Definición de redes
 # ====================================
 networks:
-  # Usa la red bridge por defecto de Docker
-  # donde ya está corriendo tu contenedor mi-postgres-db
+  # Red personalizada para comunicación entre contenedores
   default:
     external: true
-    name: bridge
+    name: miarcapet-network
